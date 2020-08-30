@@ -1,94 +1,75 @@
-# Ionic PWA Toolkit
+![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)
 
-The PWA Toolkit is a starting point for building Progressive Web Apps using Ionic and Stencil.
-This combination of tools gives you the ability to build a fast, efficient PWA out of the box.
+# Stencil Component Starter
 
-For more info check out our [homepage](https://ionicframework.com/pwa/toolkit)!
+This is a starter project for building a standalone Web Component using Stencil.
 
-## Features
+Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
 
-* `@ionic/core` for the UI.
-* Stencil for the application logic and routing
-* Push Notifications setup
-* Unit Tests
-* Pre-rendering
-* Lazy-loading and code splitting
-* Intelligent Polyfills
-* Modern mode: ES6/ESM for new browser, ES5 for older
-* Service Worker, App manifest, iOS meta tags
-* Theming using CSS variables
+# Stencil
+
+Stencil is a compiler for building fast web apps using Web Components.
+
+Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+
+Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
 ## Getting Started
 
-To start building, clone this repo to a new directory:
+To start building a new web component using Stencil, clone this repo to a new directory:
 
 ```bash
-npm init stencil ionic-pwa
+git clone https://github.com/ionic-team/stencil-component-starter.git my-component
+cd my-component
+git remote rm origin
 ```
 
+and run:
 
-## Production
+```bash
+npm install
+npm start
+```
 
-To build for production, run:
+To build the component for production, run:
 
 ```bash
 npm run build
 ```
 
-A production build includes:
-
-* Minified code bundles
-* Generated Service workers
-* App manifest
-
-## Hosting
-
-Apps should be hosted on through HTTPS, and if possible, through a provider that supports HTTP2.
-One provider that does support this is [Firebase Hosting](https://firebase.google.com/docs/hosting/).
-
-## H2 Push
-
-We recommend setting up HTTP2 Push on Firebase. H2 Push may sound complicated, but it's actually a simple concept. To learn about it, take a look at this [article](https://en.wikipedia.org/wiki/HTTP/2_Server_Push).
-
-To set this up for `my-app`:
-
-* Do a production build of the app: `npm run build`
-* Serve your WWW folder locally using a local http server and open in your browser.
-  * https://www.npmjs.com/package/http-server works pretty well for this. You can serve your www folder by running `http-server www`.
-* Open the DevTools and look at the network tab.
-  * Reload the page and you should see all of your files show up in the network tab. Excluding the `sw.js` file, these are the files you want to H2 push.
-* List these files in the link headers of your firebase.json file. For a syntax reference, review this [article](https://w3c.github.io/preload/#server-push-http-2)
-
-## Service Workers
-
-Service workers are generated via the Stencil build tool. For more information on how they can be configured, see the [Service Worker docs](https://stenciljs.com/docs/service-workers).
-
-## Developing with a Service Worker
-
-For most cases, you'll want to develop your app without generating a Service Worker. But if you'd like to test out Web Push Notifications or Background Sync, you'll need to have one generated. To generate a Service Worker during dev builds, we've added the npm script:
-
-```
-npm run start.sw
-```
-
-This will start a dev build and generate a Service Worker as well.
-
-## Unit Tests
-
-To run the unit tests once, run:
+To run the unit tests for the components, run:
 
 ```bash
 npm test
 ```
 
-To run the unit tests and watch for file changes during development, run:
+Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
 
-```bash
-npm run test.watch
-```
 
-## Testing your PWA's performance
+## Naming Components
 
-We recommend using https://www.webpagetest.org/easy with the `Run Lighthouse Audit` option turned on.
-This will give you an in depth look into your app's load performance on the average device connected to the average network.
-For more info on how to use webpagetest check out [this article](https://zoompf.com/blog/2015/07/the-seo-experts-guide-to-web-performance-using-webpagetest-2)
+When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
+
+Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
+
+
+## Using this component
+
+There are three strategies we recommend for using web components built with Stencil.
+
+The first step for all three of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+
+### Script tag
+
+- Put a script tag similar to this `<script src='https://unpkg.com/my-component@0.0.1/dist/mycomponent.js'></script>` in the head of your index.html
+- Then you can use the element anywhere in your template, JSX, html etc
+
+### Node Modules
+- Run `npm install my-component --save`
+- Put a script tag similar to this `<script src='node_modules/my-component/dist/mycomponent.js'></script>` in the head of your index.html
+- Then you can use the element anywhere in your template, JSX, html etc
+
+### In a stencil-starter app
+- Run `npm install my-component --save`
+- Add an import to the npm packages `import my-component;`
+- Then you can use the element anywhere in your template, JSX, html etc
